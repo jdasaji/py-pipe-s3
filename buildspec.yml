@@ -3,5 +3,9 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "📂 Subiendo archivos a S3..."
-      - aws s3 sync ./ s3://tu-bucket-s3 --delete
+      - echo "Construcción iniciada"
+      - aws s3 cp index.html s3://tu-bucket-s3 --acl public-read
+
+artifacts:
+  files:
+    - index.html
